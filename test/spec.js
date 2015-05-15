@@ -78,8 +78,8 @@ describe('Testing catalog methods', function () {
 
 describe('Testing portal import methods', function () {
 
-    it('Should post a portal in exportBundle format', function (done) {
-        r.exportBundle().post(xmlPath + 'addPortalImport.xml').then(function(d) {
+    it('Should post a portal', function (done) {
+        r.import().post(xmlPath + 'addPortalImport.xml').then(function(d) {
             assert.propertyVal(d, 'statusCode', 201);
             done();
         });

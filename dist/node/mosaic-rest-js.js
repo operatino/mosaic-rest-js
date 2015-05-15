@@ -42,7 +42,7 @@
             port: '7777',
             context: 'portalserver',
             username: 'admin',
-            password: 'admin', // TODO: do not expose password for frontend version
+            password: 'admin',
             plugin: null,
             portal: null
 	}, cnf || {});
@@ -56,16 +56,21 @@
             var a = ['portals', this.config.portal];
             return new BBReq('portal', this.config, a);
 	},
-        catalog: function(item) {
-            var a = ['catalog'];
-            if (item) a.push(item);
-            return new BBReq('server', this.config, a);
-        },
-        portalCatalog: function(item) {
-            var a = ['portals', this.config.portal, 'catalog'];
-            if (item) a.push(item);
-            return new BBReq('portal', this.config, a);
-        },
+    catalog: function(item) {
+        var a = ['catalog'];
+        if (item) a.push(item);
+        return new BBReq('server', this.config, a);
+    },
+    portalCatalog: function(item) {
+        var a = ['portals', this.config.portal, 'catalog'];
+        if (item) a.push(item);
+        return new BBReq('portal', this.config, a);
+    },
+    import: function() {
+        var a = ['import','portal'];
+        return new BBReq('import', this.config, a);
+
+    },
 	container: function(containerName) {
             var a = ['portals', this.config.portal, 'containers'];
             if (containerName) a.push(containerName);
@@ -111,8 +116,6 @@
 	cache: function(type) {
             var a = ['caches', type];
             return new BBReq('cache', this.config, a);
-	},
-	import: function() {
 	},
 	export: function() {
 	},
