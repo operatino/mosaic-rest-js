@@ -56,25 +56,24 @@
             var a = ['portals', this.config.portal];
             return new BBReq('portal', this.config, a);
 	},
-    catalog: function(item) {
-        var a = ['catalog'];
-        if (item) a.push(item);
-        return new BBReq('server', this.config, a);
-    },
-    portalCatalog: function(item) {
-        var a = ['portals', this.config.portal, 'catalog'];
-        if (item) a.push(item);
-        return new BBReq('portal', this.config, a);
-    },
-    import: function() {
-        var a = ['import','portal'];
-        return new BBReq('import', this.config, a);
-
-    },
+	catalog: function(item) {
+		var a = ['catalog'];
+		if (item) a.push(item);
+		return new BBReq('server', this.config, a);
+	},
+	portalCatalog: function(item) {
+		var a = ['portals', this.config.portal, 'catalog'];
+		if (item) a.push(item);
+		return new BBReq('portal', this.config, a);
+	},
+	import: function() {
+		var a = ['import','portal'];
+		return new BBReq('import', this.config, a);
+	},
 	container: function(containerName) {
-            var a = ['portals', this.config.portal, 'containers'];
-            if (containerName) a.push(containerName);
-            return new BBReq('container', this.config, a);
+		var a = ['portals', this.config.portal, 'containers'];
+		if (containerName) a.push(containerName);
+		return new BBReq('container', this.config, a);
 	},
 	widget: function(widgetName) {
             var a = ['portals', this.config.portal, 'widgets'];
